@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
@@ -44,17 +45,20 @@ public class Main {
             list.add(man);
         }
 
-        // сортировка полного списка
-        list.sort(new Comparator<Man>() {
+        // сортировка полного списка - вар.1
+        // list.sort(new Comparator<Man>() {
 
-            @Override
-            public int compare(Man o1, Man o2) {
-                if (o2.getSpeed() == o1.getSpeed()) {
-                    return o2.getHp() - o1.getHp();
-                }
-                return o2.getSpeed() - o1.getSpeed();
-            }
-        });
+        //     @Override
+        //     public int compare(Man o1, Man o2) {
+        //         if (o2.getSpeed() == o1.getSpeed()) {
+        //             return o2.getHp() - o1.getHp();
+        //         }
+        //         return o2.getSpeed() - o1.getSpeed();
+        //     }
+        // });
+
+        // сортировка полного списка - вар.2 - через compateTo в классе Man
+        Collections.sort(list);
 
         // вывод отсортированного общего списка
         System.out.println("\nОбщий список после сортировки:");

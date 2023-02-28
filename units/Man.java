@@ -2,7 +2,7 @@
 package units;
 
 
-public abstract class Man implements GameInterface {
+public abstract class Man implements GameInterface, Comparable<Man> {
     @Override
     public String getInfo() {
         return "";
@@ -55,6 +55,15 @@ public abstract class Man implements GameInterface {
 
     public int getDamage() {
         return damage;
+    }
+
+
+    @Override
+    public int compareTo(Man o) {
+        if (this.getSpeed() == o.getSpeed()) {
+            return o.getHp() - this.getHp();
+        }
+        return o.getSpeed() - this.getSpeed();
     }
 
     
